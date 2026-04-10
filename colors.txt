@@ -1,0 +1,12 @@
+Color palette hex codes:
+
+Dark Walnut #582f0e
+Saddle Brown #7f4f24
+Toffee Brown #936639
+Camel #a68a64
+Khaki Beige #b6ad90
+Dry Sage #c2c5aa
+Dry Sage #a4ac86
+Dusty Olive #656d4a
+Ebony #414833
+Charcoal Brown #333d29
