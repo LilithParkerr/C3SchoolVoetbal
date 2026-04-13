@@ -7,3 +7,5 @@ Route::get('/', function () {
 });
 
 Route::view('/dashboard', 'dashboard')->middleware('auth')->name('dashboard');
+
+Route::view('/admin-dashboard', 'adminDashboard')->middleware('auth')->name('admin-dashboard');

@@ -17,6 +17,7 @@
     @endguest
     @auth
     <a href="{{ route('dashboard') }}">Dashboard</a>
+    <a href="{{ route('admin-dashboard') }}">Admin Dashboard</a>
     @endauth
 </nav>
 </header>

@@ -10,3 +10,4 @@ Dry Sage #a4ac86
 Dusty Olive #656d4a
 Ebony #414833
 Charcoal Brown #333d29
+Muted dark blue #3E436F
