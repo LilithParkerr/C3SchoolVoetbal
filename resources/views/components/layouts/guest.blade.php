@@ -9,7 +9,7 @@
 </head>
 <body>
 
-<header>
+<x-header>
 <nav>
     @guest
     <a href="{{ route('login') }}">LogInPage</a>
@@ -20,7 +20,7 @@
     <a href="{{ route('admin-dashboard') }}">Admin Dashboard</a>
     @endauth
 </nav>
-</header>
+</x-header>
 
 <main>
  {{ $slot }}
