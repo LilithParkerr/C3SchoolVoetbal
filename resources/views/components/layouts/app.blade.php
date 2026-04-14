@@ -9,14 +9,14 @@
 </head>
 <body>
 
-<header>
+<x-header>
 <nav>
 <form action="{{ route('logout') }}" method="POST">
     @csrf
     <input type="submit" value="logout">
 </form>
 </nav>
-</header>
+</x-header>
 
 <main>
  {{ $slot }}
