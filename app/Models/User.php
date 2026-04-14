@@ -25,6 +25,7 @@ class User extends Authenticatable
      * @return array<string, string>
      */
 
+    use HasFactory;
     protected $fillable  = [
         'name',
         'email',
