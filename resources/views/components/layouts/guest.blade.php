@@ -9,25 +9,17 @@
 </head>
 <body>
 
-<x-header>
-<nav>
-    @guest
-    <a href="{{ route('login') }}">LogInPage</a>
-    <a href="{{ route('register') }}">RegisterPage</a>
-    @endguest
-    @auth
-    <a href="{{ route('dashboard') }}">Dashboard</a>
-    <a href="{{ route('admin-dashboard') }}">Admin Dashboard</a>
-    @endauth
-</nav>
-</x-header>
+<header>
+
+<x-header></x-header>
+</header>
 
 <main>
  {{ $slot }}
 </main>
 
 <footer>
-
+<x-footer></x-footer>
 </footer>
 
 </body>
