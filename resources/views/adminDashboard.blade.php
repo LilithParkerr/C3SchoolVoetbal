@@ -8,12 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-<x-header />
 
-
-
-
-<x-footer />
 </body>
 </html>
 </x-layouts.app>
