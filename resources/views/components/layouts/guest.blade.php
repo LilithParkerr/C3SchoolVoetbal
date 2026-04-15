@@ -10,7 +10,7 @@
 <body>
 
 <header>
-<nav>
+{{-- <nav>
     @guest
     <a href="{{ route('login') }}">LogInPage</a>
     <a href="{{ route('register') }}">RegisterPage</a>
@@ -19,7 +19,9 @@
     <a href="{{ route('dashboard') }}">Dashboard</a>
     <a href="{{ route('admin-dashboard') }}">Admin Dashboard</a>
     @endauth
-</nav>
+</nav> --}}
+
+<x-header></x-header>
 </header>
 
 <main>
@@ -27,7 +29,7 @@
 </main>
 
 <footer>
-
+<x-footer></x-footer>
 </footer>
 
 </body>
