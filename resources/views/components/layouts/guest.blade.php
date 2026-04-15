@@ -10,7 +10,7 @@
 <body>
 
 <header>
-{{-- <nav>
+<nav>
     @guest
     <a href="{{ route('login') }}">LogInPage</a>
     <a href="{{ route('register') }}">RegisterPage</a>
