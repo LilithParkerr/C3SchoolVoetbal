@@ -1,4 +1,4 @@
-<header class=" w-screen bg-gradient-to-b from-[#333d29] via-[#414833] to-[#656d4a] text-black py-4  rounded-b-xl">
+<header class=" w-screen bg-linear-to-b from-[#333d29] via-[#414833] to-[#656d4a] text-black py-4  rounded-b-xl">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         <!-- Left side (empty for balance) -->
@@ -10,7 +10,7 @@
                 <img
                     src="{{ asset('images/squaredLogo.jpg') }}"
                     alt="C3 School Voetbal Logo"
-                    class="h-[110px] w-auto object-contain rounded-md"
+                    class="h-27.5 w-auto object-contain rounded-md"
                     style="max-width: 180px;"
                 >
             </a>
