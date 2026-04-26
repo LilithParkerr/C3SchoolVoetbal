@@ -5,6 +5,14 @@
     <form action="{{ route('login.store') }}" method="POST" class="bg-[#656d4a]/20 p-6 rounded-xl shadow-md w-[300px]">
         @csrf
 
+@if($errors->any())
+<ul>
+    @foreach($errors->all() as $error)
+        <li>{{ $error }}</li>
+    @endforeach
+</ul>
+@endif
+
         <div class="flex flex-col gap-4">
 
             <div class="flex flex-col">
