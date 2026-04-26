@@ -1,4 +1,4 @@
-<footer class="fixed bottom-0 left-0  w-screen bg-linear-to-b from-[#656d4a] via-[#414833] to-[#333d29] text-black py-4  rounded-b-xl">
+<footer class="fixed bottom-0 left-0  w-screen bg-linear-to-b from-[#656d4a] via-[#414833] to-[#333d29] text-black py-4  rounded-t-xl">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
 

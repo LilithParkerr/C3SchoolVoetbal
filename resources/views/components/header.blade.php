@@ -1,4 +1,4 @@
-<header class=" w-screen bg-linear-to-b from-[#333d29] via-[#414833] to-[#656d4a] text-black py-4  rounded-b-xl">
+<header class=" w-screen bg-linear-to-b from-[#333d29] via-[#414833] to-[#656d4a] text-black py-4  ">
     <div class="max-w-7xl mx-auto px-6 flex items-center justify-between">
 
         <!-- Left side (empty for balance) -->

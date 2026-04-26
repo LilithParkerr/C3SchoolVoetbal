@@ -1,5 +1,5 @@
 <x-layouts.guest>
-    <section class="bg-[#3E436F]/50 p-2 mb-4">
+    <section class="bg-[#3E436F]/50 p-2 mb-4 mt-0 rounded-b-xl">
     <h2 class="flex justify-center font-bold">VoetbalVandaag is het centrale overzicht voor schoolvoetbal. Teams, wedstrijden, uitslagen — alles op één plek, altijd up-to-date.</h2>
 </section>
 
