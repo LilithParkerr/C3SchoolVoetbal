@@ -6,6 +6,7 @@ Toffee Brown #936639
 Camel #a68a64
 Khaki Beige #b6ad90
 Dry Sage #c2c5aa
+lighter Sage #e0e0d7
 Dry Sage #a4ac86
 Dusty Olive #656d4a
 Ebony #414833
