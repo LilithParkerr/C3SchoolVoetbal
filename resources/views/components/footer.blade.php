@@ -20,7 +20,11 @@
             <a href="{{route('register') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Register</a>
             @endguest
             @auth
-            <a href="{{route('logout') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Log out</a>
+                <form action="{{ route('logout') }}" method="POST" class="inline">
+                    @csrf
+                    <button type="submit" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Log out
+                    </button>
+                </form>
             @if(auth()->user()->role !== 'admin')
             <a href="{{route('dashboard') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Dashboard</a>
             @endif
