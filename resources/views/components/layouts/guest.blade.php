@@ -14,7 +14,7 @@
 <x-header></x-header>
 </header>
 
-<main>
+<main class="pb-24">
  {{ $slot }}
 </main>
 
