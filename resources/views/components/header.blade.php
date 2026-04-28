@@ -23,6 +23,7 @@
             <a href="{{route('register') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Register</a>
             @endguest
             @auth
+            <a href="{{ url('/') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Home</a>
             <form action="{{ route('logout') }}" method="POST" class="inline">
                 @csrf
                 <button type="submit" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md"> Log out
