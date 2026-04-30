@@ -12,3 +12,8 @@ Route::view('/dashboard', 'dashboard')->middleware('auth')->name('dashboard');
 Route::view('/admin-dashboard', 'adminDashboard')->middleware('auth')->name('admin-dashboard');
 
 Route::get('/', [HomeController::class, 'index']);
+
+Route::get('/dashboard', function () {
+    $games = \App\Models\Game::all();
+    return view('dashboard', ['games' => $games]);
+})->middleware('auth')->name('dashboard');
