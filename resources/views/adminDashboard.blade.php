@@ -20,24 +20,18 @@
             <p class="hellotxt">Lorem ipsum dolor sit amet consectetur adipisicing elit. A, doloremque voluptatem sit quae aliquid nulla accusamus omnis repellat fuga inventore, nostrum, praesentium porro et velit molestiae. Accusamus, quod. Ad, dicta.</p>
         </div>
 
-         <div class="Tables">
-            <h1 class="tablesh1">lorem</h1>
-            <table>
-            <thead>
-                <tr>
-                    <th>e</th>
-                </tr>
-            </thead>
-            </table>
-        </div>
-
         <div class="img">
             <img src="{{ asset('images/images.jpg') }}" alt="images">
         </div>
 
-
-
-
+        <div class="Tables">
+            <h1 class="tablesh1">lorem</h1>
+            <thead>
+                <th>
+                    <p>e</p>
+                </th>
+            </thead>
+        </div>
 
         <div class="list">
             <h1 class="listh1">loremp ipsum</h1>
@@ -45,7 +39,6 @@
             <li>ITEM</li>
         </ul>
         </div>
-
     </div>
     </div>
     </main>
