@@ -15,7 +15,7 @@
 
             <div class="grid grid-cols-2 gap-6">
 
-                <div class="bg-white rounded-xl p-6 flex gap-4">
+                <div class="bg-[#a4ac86a8] rounded-xl p-6 flex gap-4">
                     <div class="w-1/2 flex flex-col justify-center">
                         <h2 class="text-lg font-semibold mb-2">Jouw team</h2>
                         <p class="text-gray-500 text-sm">Hier zie je het logo van het team waar jij aan gekoppeld bent.</p>
@@ -24,9 +24,7 @@
                         @if(auth()->user()->team && auth()->user()->team->logo)
                             <img src="{{ asset('storage/' . auth()->user()->team->logo) }}" class="max-h-32 rounded-lg" alt="Team Logo">
                         @else
-                            <div class="w-32 h-32 bg-gray-200 flex items-center justify-center rounded-lg text-gray-400 text-sm">
-                                Geen logo
-                            </div>
+                            <img src="http://c3schoolvoetbal.test/images/images.jpg" alt="team logo" class="w-full h-48 object-cover rounded">
                         @endif
                     </div>
                 </div>

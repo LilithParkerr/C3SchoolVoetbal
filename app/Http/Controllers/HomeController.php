@@ -16,9 +16,11 @@ class HomeController extends Controller
     {
         $teams = Team::orderBy('points', 'DESC')->get();
         $games = Game::with(['team1', 'team2'])
-        ->orderByRaw('(team1_score + team2_score) DESC')
-        ->take(3)
-        ->get();
+            ->whereNotNull('date')
+            ->where('date', '>=', now()->toDateString())
+            ->orderBy('date', 'asc')
+            ->take(3)
+            ->get();
         $goals = Goal::with('player')->get();
         $users = User::all();
 

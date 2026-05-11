@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Game extends Model
 {
     use HasFactory;
-    protected $fillable = ['team1_id', 'team2_id', 'team1_score', 'team2_score', 'field', 'referee_id', 'time'];
+    protected $fillable = ['team1_id', 'team2_id', 'team1_score', 'team2_score', 'field', 'referee_id', 'time', 'date'];
 
     public function team1(): BelongsTo
     {

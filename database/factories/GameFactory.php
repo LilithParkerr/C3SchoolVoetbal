@@ -27,6 +27,7 @@ class GameFactory extends Factory
             'field' => 'Veld ' . fake()->numberBetween(1, 5),
             'referee_id' => User::factory(),
             'time' => fake()->time('H:i'),
+            'date' => fake()->dateTimeBetween('now', '+2 months')->format('Y-m-d'),
         ];
     }
 }
