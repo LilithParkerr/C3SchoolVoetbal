@@ -32,18 +32,34 @@
     </div>
 
     <div class="mt-10 mb-15 mx-25">
-        <p class="flex justify-center font-bold text-lg mb-4">Aankomende wedstrijden</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <p class="flex justify-center font-bold text-lg mb-6">Aankomende wedstrijden</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 px-4">
             @forelse($games as $game)
                 <div
-                    class="bg-[#e0e0d7] rounded-xl p-5 text-center shadow-sm transition-all duration-200 hover:scale-105 hover:bg-[#333d29] hover:text-white cursor-pointer">
-                    <p class="font-semibold text-base">{{ $game->team1->name }}</p>
-                    <p class="text-gray-400 text-sm my-1 hover:text-#936639-200">vs</p>
-                    <p class="font-semibold text-base">{{ $game->team2->name }}</p>
-                    <div class="mt-3 pt-3 border-t border-#936639-100 text-sm text-#936639-500 hover:text-gray-200">
+                    class="group relative bg-[#e0e0d7] rounded-xl p-5 text-center shadow-sm transition-all duration-300 hover:scale-125 hover:z-10 hover:bg-[#333d29] hover:text-white hover:shadow-xl cursor-pointer">
+                    <p class="font-semibold text-base group-hover:text-white">{{ $game->team1->name }}</p>
+                    <p class="text-gray-400 text-sm my-1 group-hover:text-gray-300">vs</p>
+                    <p class="font-semibold text-base group-hover:text-white">{{ $game->team2->name }}</p>
+                    <div
+                        class="mt-3 pt-3 border-t border-gray-300 group-hover:border-gray-600 text-sm text-gray-500 group-hover:text-gray-300">
                         <p>{{ \Carbon\Carbon::parse($game->date)->format('d-m-Y') }}</p>
                         <p>{{ $game->time }}</p>
                     </div>
+                    <div
+                        class="max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 text-[#c2c5aa] space-y-1 mt-2 flex flex-row gap-35 justify-center">
+                        <p class="font-bold fontsize text-[16px]"> {{ $game->referee->name ?? 'Onbekend' }}</p>
+                        <p class="font-bold fontsize text-[16px]"> {{ $game->field }}</p>
+                    </div>
+
+                    @if (auth()->check() && auth()->user()->is_admin)
+                        <div class="max-h-0 overflow-hidden group-hover:max-h-20 transition-all duration-300 mt-2">
+                            <a href="{{ route('games.edit', $game->id) }}"
+                                class="inline-block bg-[#a4ac86] hover:bg-[#656d4a] text-white text-sm px-3 py-1 rounded-md">
+                                Bewerken
+                            </a>
+                        </div>
+                    @endif
+
                 </div>
             @empty
                 <div class="col-span-3 text-center text-gray-400 py-6">

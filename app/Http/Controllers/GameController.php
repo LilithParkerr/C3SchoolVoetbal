@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Game;
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class GameController extends Controller
@@ -43,7 +45,10 @@ class GameController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $game = Game::findOrFail($id);
+        $teams = Team::all();
+        $referees = \App\Models\User::all();
+        return view('games.edit', compact('game', 'teams', 'referees'));
     }
 
     /**
@@ -51,7 +56,17 @@ class GameController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validated = $request->validate([
+            'team1_id' => 'required|exists:teams,id',
+            'team2_id' => 'required|exists:teams,id',
+            'referee_id' => 'nullable|exists:users,id',
+            'field' => 'required|string',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+        ]);
+        $game = Game::findOrFail($id);
+        $game->update($validated);
+        return redirect('/')->with('success', 'Wedstrijd bijgewerkt.');
     }
 
     /**
@@ -59,6 +74,8 @@ class GameController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $game = Game::findOrFail($id);
+        $game->delete();
+        return redirect('/')->with('success', 'Wedstrijd verwijderd.');
     }
 }
