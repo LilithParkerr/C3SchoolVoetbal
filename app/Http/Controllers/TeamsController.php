@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Team;
 use Illuminate\Http\Request;
 
 class TeamsController extends Controller
@@ -11,7 +12,8 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        //
+        $Team = Team::all();
+        return view('views.dashboard')->with('Team', $Team);
     }
 
     /**
@@ -19,7 +21,7 @@ class TeamsController extends Controller
      */
     public function create()
     {
-        //
+        return view('teams.create');
     }
 
     /**
@@ -27,7 +29,12 @@ class TeamsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = $request->validate([
+            'name' => 'required|string|max:255',
+            'points' => 'required|integer',
+        ]);
+       $teams = Team::create($validate);
+       return redirect()->route('views.dashboard')->with('team', $teams);
     }
 
     /**
@@ -35,15 +42,19 @@ class TeamsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $teams = Team::findorfail($id);
+        return view('teams.show', compact('team'));
     }
+
 
     /**
      * Show the form for editing the specified resource.
      */
     public function edit(string $id)
     {
-        //
+        $teams= Team::findOrFail($id);
+       return view('teams.edit',compact('team'));
+
     }
 
     /**
@@ -51,7 +62,13 @@ class TeamsController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+         $validate = $request->validate([
+            'name' => 'required|string|max:255',
+            'points' => 'required|integer',
+        ]);
+        $team = Team::findOrFail($id);
+        $team->update($validate);
+        return redirect()->route('views.dashboard');
     }
 
     /**
@@ -59,6 +76,8 @@ class TeamsController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        Team::destroy($id);
+        return redirect()->route('views.dashboard');
     }
 }
+
