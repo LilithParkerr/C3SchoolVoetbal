@@ -7,7 +7,15 @@
 </head>
 <body class="bg-[#c2c5aa]">
       <main>
-        <h1>HI </h1>
+            @if ($errors->any())
+            <ul class="mb-4 text-red-500">
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+            </ul>
+            @endif
+
+
     </main>
 </body>
 </x-layouts.app>

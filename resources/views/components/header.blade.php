@@ -29,14 +29,17 @@
                 <button type="submit" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md"> Log out
                 </button>
             </form>
-            @if(auth()->user()->role !== 'admin')
-            <a href="{{route('dashboard') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Dashboard</a>
-            @endif
-             @if(auth()->user()->role === 'admin')
-            <a href="{{route('admin-dashboard') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Admin Dashboard</a>
-            @endif
+           @if(!auth()->user()->is_admin)
+          <a href="{{route('dashboard') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Dashboard</a>
+           @endif
+
+           @if(auth()->user()->is_admin)
+             <a href="{{route('admin-dashboard') }}" class="border border-[#c2c5aa] p-1 hover:bg-[#656d4a] bg-[#a4ac86] rounded-md">Admin Dashboard</a>
+           @endif
             @endauth
         </div>
         </navbar>
+
+
     </div>
 </header>

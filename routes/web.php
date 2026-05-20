@@ -13,7 +13,7 @@ use App\Http\Controllers\TeamsController;
 Route::get('/dashboard', [DashController::class, 'index'])->middleware('auth')->name('dashboard');
 
 
-Route::view('/admin-dashboard', 'adminDashboard')->middleware('auth')->name('admin-dashboard');
+Route::get('/admin-dashboard', [DashController::class, 'adminIndex'])->middleware('auth')->name('admin-dashboard');
 
 Route::get('/', [HomeController::class, 'index']);
 

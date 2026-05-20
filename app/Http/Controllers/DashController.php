@@ -16,4 +16,13 @@ class DashController extends Controller
 
         return view('dashboard', compact('teams', 'aankomend', 'gespeeld'));
     }
+
+     public function adminIndex()
+    {
+        $teams = Team::where('user_id', auth()->id())->get();
+        $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
+        $gespeeld = Game::where('time', '<', now())->orderBy('time', 'desc')->get();
+
+        return view('dashboard', compact('teams', 'aankomend', 'gespeeld'));
+    }
 }

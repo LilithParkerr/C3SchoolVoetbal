@@ -12,8 +12,8 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        $Team = Team::all();
-        return view('views.dashboard')->with('Team', $Team);
+        $teams = Team::all();
+        return view('views.dashboard')->with('Team', $teams);
     }
 
     /**
@@ -66,8 +66,8 @@ class TeamsController extends Controller
             'name' => 'required|string|max:255',
             'points' => 'required|integer',
         ]);
-        $team = Team::findOrFail($id);
-        $team->update($validate);
+        $teams = Team::findOrFail($id);
+        $teams->update($validate);
         return redirect()->route('views.dashboard');
     }
 
