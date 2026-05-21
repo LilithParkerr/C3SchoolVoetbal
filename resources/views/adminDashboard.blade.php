@@ -104,7 +104,7 @@
                             <li class="p-3 flex justify-between items-center">
 
                                 <span>{{ $team->name }} | {{ $team->points }}</span>
-
+                                <div class="flex gap-2 shrink-0">
                                 @if (auth()->user()->is_admin)
                                     <form action="{{ route('teams.destroy', $team->id) }}" method="POST">
                                         @csrf
@@ -119,6 +119,7 @@
                                         class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm">
                                         update
                                     </a>
+                                    </div>
                                 @endif
                             </li>
                         @empty
