@@ -12,8 +12,12 @@ class TeamsController extends Controller
      */
     public function index()
     {
-        $teams = Team::all();
-        return view('views.dashboard')->with('Team', $teams);
+       $teams = Team::where('user_id', auth()->id())->get();
+       if(auth()->user()->is_admin) {
+    return redirect()->route('admin-dashboard');
+}
+
+return redirect()->route('dashboard');
     }
 
     /**
@@ -31,10 +35,15 @@ class TeamsController extends Controller
     {
         $validate = $request->validate([
             'name' => 'required|string|max:255',
-            'points' => 'required|integer',
+            'points' =>  auth()->user()->is_admin ? 'required|integer' : 'nullable|integer',
         ]);
+        $validate['user_id'] = auth()->id();
        $teams = Team::create($validate);
-       return redirect()->route('views.dashboard')->with('team', $teams);
+       if(auth()->user()->is_admin) {
+       return redirect()->route('admin-dashboard');
+       }
+
+       return redirect()->route('dashboard');
     }
 
     /**
@@ -52,8 +61,9 @@ class TeamsController extends Controller
      */
     public function edit(string $id)
     {
-        $teams= Team::findOrFail($id);
-       return view('teams.edit',compact('team'));
+       $team = Team::findOrFail($id);
+
+       return view('teams.edit', compact('team'));
 
     }
 
@@ -64,20 +74,28 @@ class TeamsController extends Controller
     {
          $validate = $request->validate([
             'name' => 'required|string|max:255',
-            'points' => 'required|integer',
+            'points' =>  auth()->user()->is_admin ? 'required|integer' : 'nullable|integer',
         ]);
+        $validate['user_id'] = auth()->id();
         $teams = Team::findOrFail($id);
         $teams->update($validate);
-        return redirect()->route('views.dashboard');
+          if(auth()->user()->is_admin) {
+       return redirect()->route('admin-dashboard');
+       }
+
+       return redirect()->route('dashboard');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
-    {
+    public function destroy(string $id){
         Team::destroy($id);
-        return redirect()->route('views.dashboard');
-    }
-}
+        if(auth()->user()->is_admin) {
+       return redirect()->route('admin-dashboard');
+       }
 
+       return redirect()->route('dashboard');
+    }
+
+}

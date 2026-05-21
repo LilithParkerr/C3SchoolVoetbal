@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 class Team extends Model
 {
     use HasFactory;
-    protected $fillable = ['name', 'points', 'creator_id'];
+    protected $fillable = ['name', 'points', 'user_id'];
 
     public function creator(): BelongsTo
     {
