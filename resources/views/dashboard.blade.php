@@ -94,7 +94,7 @@
                             class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm p-6">+
                             Maak een team aan</a>
                     </div>
-                    <ul class="bg-[#c2c5aa] rounded-xl overflow-hidden divide-y">
+                    <ul class="bg-[#c2c5aa] rounded-xl overflow-hidden divide-y pb-32">
                         @forelse($teams as $team)
                             <li class="p-3 flex justify-between items-center">
 
