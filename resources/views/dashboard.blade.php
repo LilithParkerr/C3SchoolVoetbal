@@ -96,7 +96,7 @@
                     <div class="flex justify-between items-center mb-3 bg-white">
                         <h3 class="text-lg font-semibold">Mijn Teams</h3>
                         <a href="{{ route('teams.create') }}"
-                            class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm">+
+                            class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm p-6">+
                             Maak een team aan</a>
                     </div>
                     <ul class="bg-[#c2c5aa] rounded-xl overflow-hidden divide-y">

@@ -21,12 +21,12 @@
                     <div class="flex flex-col gap-2">
                         <div class="flex flex-col">
                             <label for="name">Name:</label>
-                            <input type="text" name="name" id="name" placeholder="{{ $team->name }}"
+                            <input type="text" name="name" id="name" value="{{ $team->name }}"
                                 class="bg-[#656d4a] rounded-md p-2 border border-black-100">
 
                             <label for="points">Points:</label>
                             @if (auth()->user()->is_admin)
-                                <input type="number" name="points" id="points" placeholder="{{ $team->points }}"
+                                <input type="number" name="points" id="points" value="{{ $team->points }}"
                                     class="bg-[#656d4a] rounded-md p-2 border border-black-100">
                             @else
                                 <input type="number" value="1" disabled
