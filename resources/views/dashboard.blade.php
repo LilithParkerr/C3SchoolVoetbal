@@ -105,7 +105,7 @@
 
                                 <span>{{ $team->name }} | {{ $team->points }}</span>
 
-
+                                    <div class="flex gap-2 shrink-0">
                                     <form action="{{ route('teams.destroy', $team->id) }}" method="POST">
                                         @csrf
                                         @method('DELETE')
@@ -120,6 +120,7 @@
                                         class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm">
                                         update
                                     </a>
+                                    </div>
                             </li>
                         @empty
                             <li class="p-3 text-gray-400">Je hebt nog geen teams aangemaakt.</li>
