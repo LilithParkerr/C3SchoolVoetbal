@@ -13,7 +13,11 @@ class GameController extends Controller
      */
     public function index()
     {
-        //
+        $teams = Team::where('user_id', auth()->id())->get();
+        $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
+        $gespeeld = Game::where('time', '<', now())->orderBy('time', 'desc')->get();
+
+        return view('games.index', compact('teams', 'aankomend', 'gespeeld'));
     }
 
     /**
@@ -21,15 +25,27 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        $teams = Team::all();
+        $referees = \App\Models\User::all();
+        return view('games.create', compact('teams', 'referees'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
-        //
+        $validated = $request->validate([
+            'team1_id' => 'required|exists:teams,id',
+            'team2_id' => 'required|exists:teams,id',
+            'referee_id' => 'nullable|exists:users,id',
+            'field' => 'required|string',
+            'date' => 'required|date',
+            'time' => 'required|date_format:H:i',
+            'team1_score' => 'nullable|integer|min:0',
+            'team2_score' => 'nullable|integer|min:0',
+        ]);
+
+        Game::create($validated);
+
+        return redirect('/games')->with('success', 'Wedstrijd aangemaakt.');
     }
 
     /**
@@ -63,6 +79,8 @@ class GameController extends Controller
             'field' => 'required|string',
             'date' => 'required|date',
             'time' => 'required|date_format:H:i',
+            'team1_score' => 'nullable|integer|min:0',
+            'team2_score' => 'nullable|integer|min:0',
         ]);
         $game = Game::findOrFail($id);
         $game->update($validated);

@@ -84,7 +84,7 @@
                             </tbody>
                         </table>
                         <div class="m-[5px]">
-                            <a href=""
+                            <a href="{{ route ('games.index') }}"
                                 class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm">Alle
                                 wedstrijden</a>
                         </div>
