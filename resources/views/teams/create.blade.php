@@ -23,16 +23,6 @@
                             <input type="text" name="name" id="name" placeholder=""
                                 class="bg-[#656d4a] rounded-md p-2 border border-black-100">
 
-                            <label for="points">Points:</label>
-                            @if (auth()->user()->is_admin)
-                                <input type="number" name="points" id="points" placeholder=""
-                                    class="bg-[#656d4a] rounded-md p-2 border border-black-100">
-
-                            @else
-                                <input type="number" value="1" disabled
-                                    class="bg-[#656d4a]/50 rounded-md p-2 border opacity-60 cursor-not-allowed">
-                            @endif
-
                             <div class="pt-5 mx-auto">
                                 <input
                                     class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm"

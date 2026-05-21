@@ -35,7 +35,6 @@ return redirect()->route('dashboard');
     {
         $validate = $request->validate([
             'name' => 'required|string|max:255',
-            'points' =>  auth()->user()->is_admin ? 'required|integer' : 'nullable|integer',
         ]);
         $validate['user_id'] = auth()->id();
        $teams = Team::create($validate);
