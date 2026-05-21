@@ -29,7 +29,7 @@
                                 <input type="number" name="points" id="points" value="{{ $team->points }}"
                                     class="bg-[#656d4a] rounded-md p-2 border border-black-100">
                             @else
-                                <input type="number" value="1" disabled
+                                <input type="number" value="{{ $team->points }}" disabled
                                     class="bg-[#656d4a]/50 rounded-md p-2 border opacity-60 cursor-not-allowed">
                             @endif
                             <div class="pt-5 mx-auto">
