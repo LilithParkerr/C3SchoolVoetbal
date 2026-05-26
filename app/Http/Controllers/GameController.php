@@ -26,7 +26,9 @@ class GameController extends Controller
     public function create()
     {
         $teams = Team::all();
-        $referees = \App\Models\User::all();
+        $referees = \App\Models\User::where('is_admin', false)
+            ->whereDoesntHave('teams')
+            ->get();
         return view('games.create', compact('teams', 'referees'));
     }
 
@@ -63,7 +65,9 @@ class GameController extends Controller
     {
         $game = Game::findOrFail($id);
         $teams = Team::all();
-        $referees = \App\Models\User::all();
+        $referees = \App\Models\User::where('is_admin', false)
+            ->whereDoesntHave('teams')
+            ->get();
         return view('games.edit', compact('game', 'teams', 'referees'));
     }
 

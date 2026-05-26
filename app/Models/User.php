@@ -25,8 +25,7 @@ class User extends Authenticatable
      * @return array<string, string>
      */
 
-    use HasFactory;
-    protected $fillable  = [
+    protected $fillable = [
         'name',
         'email',
         'password',
@@ -45,6 +44,11 @@ class User extends Authenticatable
     public function team(): BelongsTo
     {
         return $this->belongsTo(Team::class);
+    }
+
+    public function teams(): HasMany
+    {
+        return $this->hasMany(Team::class, 'user_id');
     }
 
     public function goals(): HasMany
