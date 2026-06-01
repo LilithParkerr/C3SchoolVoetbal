@@ -7,6 +7,13 @@
                     class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm">
                     + Wedstrijd aanmaken
                 </a>
+
+                <form action="{{ route('games.seed') }}" method="POST">
+                    @csrf
+                    <button type="submit" class="border border-[#c2c5aa] px-3 py-1 bg-[#a4ac86] hover:bg-[#656d4a] rounded-md text-sm"> Genereer Wedstrijd </button>
+
+                </form>
+
             </div>
 
 
@@ -46,7 +53,12 @@
                 </tbody>
             </table>
 
-            <h2 class="text-lg font-semibold mb-2">Gespeelde wedstrijden</h2>
+                <h2 class="text-lg font-semibold">Gespeelde wedstrijden</h2>
+                @if ($verborgen > 0)
+                    <span class="text-xs text-gray-500">{{ $verborgen }} wedstrijden zijn verborgen. (ouder dan 3 maanden worden niet
+                        getoond)</span>
+                @endif
+
             <table class="w-full text-sm">
                 <thead>
                     <tr class="bg-[#e0e0d7]">
