@@ -29,7 +29,9 @@ class GenerateController extends Controller
                     'field' => 'Veld ' . rand(1, 4),
                     'referee_id' => rand(1, 10),
                     'time' => now()->setTime(rand(8, 20), 0)->format('H:i'),
-                    'date' => now()->subDays(rand(1, 200))->format('Y-m-d'),
+                    'date' => rand(0, 1)
+                        ? now()->addDays(rand(1, 200))->format('Y-m-d')
+                        : now()->subDays(rand(1, 200))->format('Y-m-d'),
                 ]);
             }
         }

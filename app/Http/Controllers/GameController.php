@@ -15,8 +15,14 @@ class GameController extends Controller
     {
         $cutoff = now()->subMonths(3);
         $teams = Team::where('user_id', auth()->id())->get();
-        $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
+       $aankomend = Game::whereNull('team1_score')
+        ->whereNull('team2_score')
+        ->orderBy('date')
+        ->orderBy('time')
+        ->get();
+
         $gespeeld = Game::where('date', '<', today())
+         ->whereNotNull('team2_score')
             ->where('date', '>=', $cutoff)
             ->orderBy('date', 'desc')
             ->take(40)
