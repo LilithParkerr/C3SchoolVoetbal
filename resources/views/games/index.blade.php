@@ -54,10 +54,6 @@
             </table>
 
                 <h2 class="text-lg font-semibold">Gespeelde wedstrijden</h2>
-                @if ($verborgen > 0)
-                    <span class="text-xs text-gray-500">{{ $verborgen }} wedstrijden zijn verborgen. (ouder dan 3 maanden worden niet
-                        getoond)</span>
-                @endif
 
             <table class="w-full text-sm">
                 <thead>
