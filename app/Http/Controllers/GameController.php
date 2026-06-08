@@ -19,7 +19,7 @@ class GameController extends Controller
         $gespeeld = Game::where('date', '<', today())
             ->where('date', '>=', $cutoff)
             ->orderBy('date', 'desc')
-            ->take(10)
+            ->take(40)
             ->get();
 
         $verborgen = Game::where('date', '<', $cutoff)->count();

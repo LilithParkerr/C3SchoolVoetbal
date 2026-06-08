@@ -24,8 +24,8 @@ class GenerateController extends Controller
                 Game::create([
                     'team1_id' => $team1->id,
                     'team2_id' => $team2->id,
-                    'team1_score' => rand(0, 5),
-                    'team2_score' => rand(0, 5),
+                    'team1_score' => Null,
+                    'team2_score' => Null,
                     'field' => 'Veld ' . rand(1, 4),
                     'referee_id' => rand(1, 10),
                     'time' => now()->setTime(rand(8, 20), 0)->format('H:i'),

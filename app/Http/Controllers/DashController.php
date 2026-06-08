@@ -12,8 +12,8 @@ class DashController extends Controller
     {
         $teams = Team::where('user_id', auth()->id())->get();
         $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
-        $gespeeld = Game::where('time', '<', now())->orderBy('time', 'desc')->get();
-
+        $gespeeld = Game::where('time', '<', now())->orderBy('date', 'desc')
+            ->take(10)->get();
         return view('dashboard', compact('teams', 'aankomend', 'gespeeld'));
     }
 
@@ -21,7 +21,8 @@ class DashController extends Controller
     {
         $teams = Team::all();
         $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
-        $gespeeld = Game::where('time', '<', now())->orderBy('time', 'desc')->get();
+         $gespeeld = Game::where('time', '<', now())->orderBy('date', 'desc')
+            ->take(10)->get();
 
         return view('adminDashboard', compact('teams', 'aankomend', 'gespeeld'));
     }
