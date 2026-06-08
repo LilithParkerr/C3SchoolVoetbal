@@ -17,15 +17,15 @@ class GameController extends Controller
         $teams = Team::where('user_id', auth()->id())->get();
         $aankomend = Game::whereNull('team1_score')
             ->whereNull('team2_score')
-            ->orderBy('date')
-            ->orderBy('time')
+            ->orderBy('date', 'asc')
+            ->orderBy('time', 'asc')
+            ->take(20)
             ->get();
 
         $gespeeld = Game::where('date', '<', today())
             ->whereNotNull('team2_score')
-            ->where('date', '>=', $cutoff)
             ->orderBy('date', 'desc')
-            ->take(20)
+            ->take(10)
             ->get();
 
         $verborgen = Game::where('date', '<', $cutoff)->count();

@@ -11,18 +11,34 @@ class DashController extends Controller
     public function index()
     {
         $teams = Team::where('user_id', auth()->id())->get();
-        $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
-        $gespeeld = Game::where('time', '<', now())->orderBy('date', 'desc')
-            ->take(10)->get();
+        $aankomend = Game::where('date', '>=', now()->toDateString())
+            ->orderBy('date', 'asc')
+            ->orderBy('time', 'asc')
+            ->take(20)
+            ->get();
+
+        $gespeeld = Game::where('date', '<', now()->toDateString())
+            ->orderBy('date', 'desc')
+            ->orderBy('time', 'desc')
+            ->take(10)
+            ->get();
         return view('dashboard', compact('teams', 'aankomend', 'gespeeld'));
     }
 
-     public function adminIndex()
+    public function adminIndex()
     {
         $teams = Team::all();
-        $aankomend = Game::where('time', '>=', now())->orderBy('time')->get();
-         $gespeeld = Game::where('time', '<', now())->orderBy('date', 'desc')
-            ->take(10)->get();
+        $aankomend = Game::where('date', '>=', now()->toDateString())
+            ->orderBy('date', 'asc')
+            ->orderBy('time', 'asc')
+            ->take(20)
+            ->get();
+
+        $gespeeld = Game::where('date', '<', now()->toDateString())
+            ->orderBy('date', 'desc')
+            ->orderBy('time', 'desc')
+            ->take(10)
+            ->get();
 
         return view('adminDashboard', compact('teams', 'aankomend', 'gespeeld'));
     }
